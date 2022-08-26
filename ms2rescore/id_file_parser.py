@@ -63,7 +63,8 @@ class _Pipeline(ABC):
 
         # General private attributes
         self._pin_spec_id_patterns = {
-            "generic": r".+_([0-9]+)_[0-9]+_[0-9]+",
+            #"generic": r".+_([0-9]+)_[0-9]+_[0-9]+",
+            "generic": r"(.*)",
             "tandem": r".+_([0-9]+)_[0-9]+_[0-9]+",
             "msgfplus": r".+_SII_([0-9]+)_[0-9]+_[0-9]+_[0-9]+",
             # "USI": r"mzspec:PXD[0-9]{6}:[^\s\:]*:scan:([0-9]+)"

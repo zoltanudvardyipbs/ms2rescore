@@ -1,6 +1,7 @@
 """MS²ReScore: Sensitive PSM rescoring with predicted MS² peak intensities and RTs."""
 
 import logging
+import multiprocessing
 
 from ms2rescore import MS2ReScore
 
@@ -21,4 +22,5 @@ def main():
 
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     main()
