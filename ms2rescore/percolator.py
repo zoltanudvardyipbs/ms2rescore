@@ -266,7 +266,7 @@ class PercolatorIn:
         if not pattern:
             pattern = r".+_([0-9]+)_[0-9]+_[0-9]+"
         id_col = self.df["SpecId"].str.extract(pattern, expand=False).astype(int, errors='ignore')
-        #id_col = self.df["SpecId"].str.extract(pattern, expand=False)
+        
         if id_col.duplicated().any():
             raise PercolatorInError("Issue in matching spectrum IDs, duplicates found.")
         if id_col.isna().any():
