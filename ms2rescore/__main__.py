@@ -22,5 +22,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # The call to multiprocessing.freeze_support() was necessary for bundling
+    # the app to an executable with pyinstaller.
     multiprocessing.freeze_support()
     main()
