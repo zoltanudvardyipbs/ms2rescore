@@ -63,17 +63,17 @@ class _Pipeline(ABC):
 
         # General private attributes
         self._pin_spec_id_patterns = {
-            #"generic": r".+_([0-9]+)_[0-9]+_[0-9]+",
-            "generic": r"(.*)",
+            "generic": r".+_([0-9]+)_[0-9]+_[0-9]+",
             "tandem": r".+_([0-9]+)_[0-9]+_[0-9]+",
             "msgfplus": r".+_SII_([0-9]+)_[0-9]+_[0-9]+_[0-9]+",
+            "relaxed": r"(.*)",
             # "USI": r"mzspec:PXD[0-9]{6}:[^\s\:]*:scan:([0-9]+)"
         }
 
         # Private attributes specific to pipeline, override these in each subclass
         self._path_to_original_pin = None
         self._pin_converter_name = None
-        self._pin_spec_id_style = "generic"
+        self._pin_spec_id_style = "relaxed"
         self._pin_modification_style = "infer"
 
         # Private attributes used by methods
@@ -221,7 +221,7 @@ class PinPipeline(_Pipeline):
         # Private attributes specific to pipeline
         self._path_to_original_pin = self.path_to_id_file
         self._pin_converter_name = None
-        self._pin_spec_id_style = "generic"
+        self._pin_spec_id_style = "relaxed"
         self._pin_modification_style = "infer"
 
     def get_peprec(self) -> PeptideRecord:
